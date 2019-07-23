@@ -10,15 +10,11 @@ namespace SuperReader.SuperReader
 {
     public class ContextConection
     {
-        public ContextConection()
-        {
-
-        }
+        public ContextConection() {}
 
         private static SqlConnection connection;
         protected static SqlConnection getConection()
         {
-
             SqlConnectionStringBuilder build = new SqlConnectionStringBuilder()
             {
                 DataSource = ConfigurationSettings.AppSettings["sever"],
@@ -31,7 +27,6 @@ namespace SuperReader.SuperReader
                 TrustServerCertificate = false,
                 ConnectTimeout = 30
             };
-
             connection = new SqlConnection(build.ToString());
             connection.Open();
             return connection;
@@ -47,9 +42,5 @@ namespace SuperReader.SuperReader
                 return command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
             }
         }
-
-
     }
-
-   
 }

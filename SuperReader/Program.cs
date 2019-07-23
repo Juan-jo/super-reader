@@ -14,7 +14,7 @@ namespace SuperReader
         static void Main(string[] args)
         {
             List<SampleModel> list = ContextConection.getReader("SELECT * FROM [MAQE].[Orders]").VasReader<SampleModel>();
-            string TS = "";
+            
             Console.ReadKey();
         }
     }
