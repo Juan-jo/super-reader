@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuperReader\ContextConection.cs" />
+    <Compile Include="SuperReader\OtherModel.cs" />
     <Compile Include="SuperReader\SampleModel.cs" />
     <Compile Include="SuperReader\SuperReader.cs" />
   </ItemGroup>
