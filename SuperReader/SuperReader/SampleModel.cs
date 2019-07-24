@@ -12,5 +12,6 @@
         public string CveEvto { get; set; }
 
         public string CveStat { get; set; }
+        
     }
 }

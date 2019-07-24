@@ -22,45 +22,23 @@ namespace SuperReader.SuperReader
             var ResultList = new List<T>();
             while (reader.Read())
             {
-                var item = Activator.CreateInstance<T>();
-                
-                foreach(var propiedad in typeof(T).GetProperties())
-                {
-                    convertTo = propiedad.PropertyType;
-                    propiedad.SetValue(item, Convert.ChangeType(reader[propiedad.Name], convertTo));
-                }
-                ResultList.Add(item);
+                ResultList.Add(GetT<T>(reader));
             }
             return ResultList;
         }
 
-
-        //get and set model
-        public static List<T> VasReader2<T>(this SqlDataReader reader) where T : class, new()
+        private static T GetT<T>(SqlDataReader reader) where T:class, new()
         {
-            if (reader == null) throw new ArgumentNullException(nameof(reader));
-
-            var ResultList = new List<T>();
-            while (reader.Read())
+            var t = Activator.CreateInstance<T>();
+            
+            foreach (var p in typeof(T).GetProperties())
             {
-                var item = Activator.CreateInstance<T>();
-
-                foreach (var propiedad in typeof(T).GetProperties())
-                {
-                    convertTo = propiedad.PropertyType;
-                    
-                    if(propiedad.Name == "String")
-                        propiedad.SetValue(item, Convert.ChangeType(reader[propiedad.Name], convertTo));
-                    else
-                    {
-                        var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-                    }
-                }
-                ResultList.Add(item);
+                    convertTo = p.PropertyType;
+                    p.SetValue(t, Convert.ChangeType(reader[p.Name], convertTo));
             }
-            return ResultList;
+            return t;
         }
+        
 
     }
 }
