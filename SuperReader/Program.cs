@@ -13,8 +13,21 @@ namespace SuperReader
     {
         static void Main(string[] args)
         {
-            List<SampleModel> list = ContextConection.getReader("SELECT * FROM [MAQE].[Orders]").VasReader<SampleModel>();
-            string s = "nan";
+            using(var context = ContextConection.Instancia)
+            {
+                try
+                {
+                    context.OpenConection();
+                    List<SampleModel> list = context.getReader("SELECT * FROM [MAQE].[Orders]").VasReader<SampleModel>();
+
+                    foreach (var item in list)
+                        Console.WriteLine("Order:{0}, Client:{1}", item.CveOrder, item.ClientName);
+                }
+                finally
+                {
+                    context.CloseConnection();
+                }
+            }            
             Console.ReadKey();
         }
     }

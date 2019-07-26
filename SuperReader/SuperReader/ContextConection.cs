@@ -4,17 +4,16 @@ using System.Timers;
 using System.Configuration;
 using System.Threading;
 using System.Data.SqlClient;
-
+using System.Data;
 
 namespace SuperReader.SuperReader
 {
-    public class ContextConection
+    public class ContextConection: IDisposable
     {
-        public ContextConection() {}
+        private SqlConnection _MyConnection;
 
-        private static SqlConnection connection;
-        protected static SqlConnection getConection()
-        {
+        public ContextConection() {
+
             SqlConnectionStringBuilder build = new SqlConnectionStringBuilder()
             {
                 DataSource = ConfigurationSettings.AppSettings["sever"],
@@ -27,20 +26,39 @@ namespace SuperReader.SuperReader
                 TrustServerCertificate = false,
                 ConnectTimeout = 30
             };
-            connection = new SqlConnection(build.ToString());
-            connection.Open();
-            return connection;
+            _MyConnection = new SqlConnection(build.ToString());
         }
 
-        public static SqlDataReader getReader(string sql)
+        public static ContextConection Instancia
         {
-            SqlConnection conection = getConection();
-            using (var command = new SqlCommand(sql, conection))
+            get { return Singleton<ContextConection>.Instancia; }
+        }
+
+        public void OpenConection()
+        {
+            if (_MyConnection.State == ConnectionState.Open)
+                _MyConnection.Close();
+
+            _MyConnection.Open();
+        }
+        public void CloseConnection()
+        {
+            if (_MyConnection.State == ConnectionState.Open)
+                _MyConnection.Close();
+        }
+        
+        public SqlDataReader getReader(string sql)
+        {
+            using (var command = new SqlCommand(sql, _MyConnection))
             {
                 command.CommandTimeout = 120;
                 command.CommandType = System.Data.CommandType.Text;
                 return command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
             }
+        }
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
         }
     }
 }
