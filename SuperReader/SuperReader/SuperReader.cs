@@ -38,7 +38,5 @@ namespace SuperReader.SuperReader
             }
             return t;
         }
-        
-
     }
 }
