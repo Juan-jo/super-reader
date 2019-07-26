@@ -47,6 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SuperReader\ContextConection.cs" />
     <Compile Include="SuperReader\SampleModel.cs" />
+    <Compile Include="SuperReader\Singleton.cs" />
     <Compile Include="SuperReader\SuperReader.cs" />
   </ItemGroup>
   <ItemGroup>
