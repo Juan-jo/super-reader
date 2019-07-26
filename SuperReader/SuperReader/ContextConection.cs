@@ -26,7 +26,7 @@ namespace SuperReader.SuperReader
                 TrustServerCertificate = false,
                 ConnectTimeout = 30
             };
-            _MyConnection = new SqlConnection(build.ToString());
+            _MyConnection = new SqlConnection(build.ConnectionString);
         }
 
         public static ContextConection Instancia
