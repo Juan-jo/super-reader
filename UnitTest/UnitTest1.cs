@@ -18,9 +18,6 @@ namespace UnitTest
                 {
                     context.OpenConection();
                     list = context.getReader("SELECT * FROM [MAQE].[Orders]").VasReader<SampleModel>();
-
-                    foreach (var item in list)
-                        Console.WriteLine("Order:{0}, Client:{1}", item.CveOrder, item.ClientName);
                 }
                 finally
                 {
