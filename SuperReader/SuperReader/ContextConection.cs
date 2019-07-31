@@ -21,7 +21,7 @@ namespace SuperReader.SuperReader
         }
         public static ContextConection Instancia
         {
-            get { return Singleton<ContextConection>.Instancia; }
+            get { return Singleton<ContextConection>.getInstancia; }
         }
 
         public void OpenConection()

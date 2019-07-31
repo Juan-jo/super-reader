@@ -26,6 +26,5 @@ namespace UnitTest
             }
             Assert.IsInstanceOfType(list, typeof(List<SampleModel>));
         }
-        
     }
 }

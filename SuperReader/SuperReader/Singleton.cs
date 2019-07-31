@@ -9,21 +9,15 @@
         private static readonly object Sync = new object();
         #endregion declare properties
 
-        public static T Instancia
+        public static T getInstancia
         {
             get
             {
-                if(NInstance == null)
-                {
-                    // Valida si no esta bloqueda la instancia
-                    lock (Sync)
-                    {
-                        if(NInstance == null)
-                        {
+                if (NInstance == null)
+                    lock (Sync) // Valida si no esta bloqueda la instancia
+                        if (NInstance == null)
                             NInstance = new T();
-                        }
-                    }
-                }
+
                 return NInstance;
             }
         }
