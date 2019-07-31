@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace SuperReader.SuperReader
 {
-    static class SuperReader
+    public static class SuperReader
     {
         private static Type convertTo = null;
 
@@ -23,14 +23,13 @@ namespace SuperReader.SuperReader
 
         private static T GetT<T>(SqlDataReader reader) where T:class, new()
         {
-            var t = Activator.CreateInstance<T>();
-            
-            foreach (var p in typeof(T).GetProperties())
+            var o = Activator.CreateInstance<T>();
+            foreach (var p in o.GetType().GetProperties())//typeof(T).GetProperties())
             {
                     convertTo = p.PropertyType;
-                    p.SetValue(t, Convert.ChangeType(reader[p.Name], convertTo));
+                    p.SetValue(o, Convert.ChangeType(reader[p.Name], convertTo));
             }
-            return t;
-        }
+            return o;
+        }        
     }
 }

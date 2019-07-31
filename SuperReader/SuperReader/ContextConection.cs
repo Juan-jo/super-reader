@@ -7,25 +7,18 @@ namespace SuperReader.SuperReader
 {
     public class ContextConection: IDisposable
     {
-        private SqlConnection _MyConnection;
+        private SqlConnection myConnection;
 
         public ContextConection() {
+            //Constriur conextion al servidor de baase de datos
+            SqlConnectionStringBuilder myBuilder = new SqlConnectionStringBuilder();
+            myBuilder.InitialCatalog = "master";
+            myBuilder.DataSource = "(localdb)\\mssqllocaldb";
+            myBuilder.ConnectTimeout = 30;
 
-            SqlConnectionStringBuilder build = new SqlConnectionStringBuilder()
-            {
-                DataSource = ConfigurationSettings.AppSettings["sever"],
-                InitialCatalog = ConfigurationSettings.AppSettings["database"],
-                PersistSecurityInfo = true,
-                UserID = ConfigurationSettings.AppSettings["userName"],
-                Password = ConfigurationSettings.AppSettings["password"],
-                MultipleActiveResultSets = false,
-                Encrypt = false,
-                TrustServerCertificate = false,
-                ConnectTimeout = 30
-            };
-            _MyConnection = new SqlConnection(build.ConnectionString);
+            myConnection = new SqlConnection();
+            myConnection.ConnectionString = myBuilder.ConnectionString;
         }
-
         public static ContextConection Instancia
         {
             get { return Singleton<ContextConection>.Instancia; }
@@ -33,20 +26,20 @@ namespace SuperReader.SuperReader
 
         public void OpenConection()
         {
-            if (_MyConnection.State == ConnectionState.Open)
-                _MyConnection.Close();
+            if (myConnection.State == ConnectionState.Open)
+                myConnection.Close();
 
-            _MyConnection.Open();
+            myConnection.Open();
         }
         public void CloseConnection()
         {
-            if (_MyConnection.State == ConnectionState.Open)
-                _MyConnection.Close();
+            if (myConnection.State == ConnectionState.Open)
+                myConnection.Close();
         }
         
         public SqlDataReader getReader(string sql)
         {
-            using (var command = new SqlCommand(sql, _MyConnection))
+            using (var command = new SqlCommand(sql, myConnection))
             {
                 command.CommandTimeout = 120;
                 command.CommandType = System.Data.CommandType.Text;
