@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -42,8 +41,8 @@ namespace SuperReader.SuperReader
             using (var command = new SqlCommand(sql, myConnection))
             {
                 command.CommandTimeout = 120;
-                command.CommandType = System.Data.CommandType.Text;
-                return command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                command.CommandType = CommandType.Text;
+                return command.ExecuteReader(CommandBehavior.CloseConnection);
             }
         }
         public void Dispose()

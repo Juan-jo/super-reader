@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SuperReader\SuperReader.csproj">
-      <Project>{250b19dd-2d6b-4556-9d7a-4f8a4d513e31}</Project>
-      <Name>SuperReader</Name>
+    <ProjectReference Include="..\SperReader\SperReader.csproj">
+      <Project>{a65fa9d6-2886-4d0a-9de8-91b292751979}</Project>
+      <Name>SperReader</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SuperReader.SuperReader;
+using SperReader;
 using System.Collections.Generic;
 
 namespace UnitTest
@@ -11,20 +11,20 @@ namespace UnitTest
         [TestMethod]
         public void GetList()
         {
-            List<SampleModel> list;
-            using (var context = ContextConection.Instancia)
+            List<ModelInfo> list;
+            using (var context = dbContext.Instancia)
             {
                 try
                 {
-                    context.OpenConection();
-                    list = context.getReader("SELECT * FROM [MAQE].[Orders]").VasReader<SampleModel>();
+                    context.OpenConnection();
+                    list = context.GetReaderBySQL("SELECT * FROM [MAQE].[Orders]").VasReader<ModelInfo>();
                 }
                 finally
                 {
                     context.CloseConnection();
                 }
             }
-            Assert.IsInstanceOfType(list, typeof(List<SampleModel>));
+            Assert.IsInstanceOfType(list, typeof(List<ModelInfo>));
         }
     }
 }

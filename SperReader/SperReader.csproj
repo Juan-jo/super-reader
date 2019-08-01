@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{250B19DD-2D6B-4556-9D7A-4F8A4D513E31}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{A65FA9D6-2886-4D0A-9DE8-91B292751979}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SuperReader</RootNamespace>
-    <AssemblyName>SuperReader</AssemblyName>
+    <RootNamespace>SperReader</RootNamespace>
+    <AssemblyName>SperReader</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,14 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dbContext.cs" />
+    <Compile Include="ModelInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SuperReader\ContextConection.cs" />
-    <Compile Include="SuperReader\SampleModel.cs" />
-    <Compile Include="SuperReader\Singleton.cs" />
-    <Compile Include="SuperReader\SuperReader.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ScreenShot\" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="SuperReader.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
