@@ -54,18 +54,18 @@ namespace UnitTest
             foreach (var item in types)
                 myListaType.Add(item);
 
-            CancellationToken tokenCancellation = new CancellationToken();
+            CancellationTokenSource tokenCancellation = new CancellationTokenSource();
             Run(tokenCancellation, 1, myListaType);
 
             Assert.IsInstanceOfType(myListaType, typeof(List<Type>));
         }
 
         
-        void Run(CancellationToken tokenCancellation, int maxParalelos, List<Type> myListTypes)
+        void Run(CancellationTokenSource tokenCancellation, int maxParalelos, List<Type> myListTypes)
         {
             ParallelOptions options = new ParallelOptions()
             {
-                CancellationToken = tokenCancellation,
+                CancellationToken = tokenCancellation.Token,
                 MaxDegreeOfParallelism = maxParalelos
             };
             Parallel.ForEach(myListTypes, options, type =>
