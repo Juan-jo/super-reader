@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SperReader", "SperReader\SperReader.csproj", "{A65FA9D6-2886-4D0A-9DE8-91B292751979}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abstraction", "abstraction\abstraction.csproj", "{7CEDC6D0-9391-4144-89AE-BC7B377579A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Producto", "Producto\Producto.csproj", "{F1C412F6-4FD7-498F-A4B9-BB4C685D660D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{A65FA9D6-2886-4D0A-9DE8-91B292751979}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A65FA9D6-2886-4D0A-9DE8-91B292751979}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A65FA9D6-2886-4D0A-9DE8-91B292751979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CEDC6D0-9391-4144-89AE-BC7B377579A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CEDC6D0-9391-4144-89AE-BC7B377579A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CEDC6D0-9391-4144-89AE-BC7B377579A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CEDC6D0-9391-4144-89AE-BC7B377579A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C412F6-4FD7-498F-A4B9-BB4C685D660D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C412F6-4FD7-498F-A4B9-BB4C685D660D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C412F6-4FD7-498F-A4B9-BB4C685D660D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C412F6-4FD7-498F-A4B9-BB4C685D660D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

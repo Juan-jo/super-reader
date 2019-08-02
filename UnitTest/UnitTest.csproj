@@ -55,6 +55,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abstraction\abstraction.csproj">
+      <Project>{7cedc6d0-9391-4144-89ae-bc7b377579a0}</Project>
+      <Name>abstraction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Producto\Producto.csproj">
+      <Project>{f1c412f6-4fd7-498f-a4b9-bb4c685d660d}</Project>
+      <Name>Producto</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SperReader\SperReader.csproj">
       <Project>{a65fa9d6-2886-4d0a-9de8-91b292751979}</Project>
       <Name>SperReader</Name>

@@ -28,8 +28,6 @@ namespace SperReader
         }
 
         #region Constructor
-      
-
         public dbContext()
         {
             handle = new IntPtr();
